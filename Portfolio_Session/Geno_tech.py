@@ -15,7 +15,7 @@ nucleotide patterns, and splitting sequences based on certain markers
 '''
 
 
-dna_sequence = dna_sequence = str(input("Please input a dna sequence:"))
+dna_sequence = dna_sequence = str(input("Please input a DNA sequence:"))
 
 uppercase_sequence = dna_sequence.upper()
 
@@ -39,6 +39,7 @@ segments = uppercase_sequence.split(split_segment)
 print(f"Segments split by '{split_segment}'", segments)
 
 
-trait_sequence = "TAG"
+trait_sequence = input("Select the trait sequence you would like to find: ").upper()
 if trait_sequence in segments:
-    print(f"Trait for blue eyes {trait_sequence} likely present.")
+    print(f"Trait for sequence {trait_sequence} likely present.")
+else: print(f"No trait sequence {trait_sequence} found")
