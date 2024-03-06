@@ -13,12 +13,14 @@ entire sequence to uppercase for uniformity, replacing specific
 nucleotide patterns, and splitting sequences based on certain markers
 
 '''
-
+# User input of the DNA sequence to investigate
 
 dna_sequence = dna_sequence = str(input("Please input a DNA sequence:"))
 
+# Change all the sequence to upper case
 uppercase_sequence = dna_sequence.upper()
 
+# Replace A with T
 replace_sequence = uppercase_sequence.replace("A", "T")
 
 print(f"""
@@ -28,15 +30,18 @@ print(f"""
         """
       )
 
+# Genetic marker to investigate 
 genetic_marker = input("Select the genetic marker you would to find: ").upper()
 if genetic_marker in uppercase_sequence:
     print("Genetic marker found:", genetic_marker)
 else: print("Marker not found")
 
+# Splitting the sequence 
 split_segment = input("Select the letter you would like to split by: ").upper()
 
 segments = uppercase_sequence.split(split_segment)
 print(f"Segments split by '{split_segment}'", segments)
+
 
 
 trait_sequence = input("Select the trait sequence you would like to find: ").upper()
