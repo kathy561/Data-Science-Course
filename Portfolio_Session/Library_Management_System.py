@@ -45,6 +45,8 @@ def checkout_book(book_title, user_name, date):
 
 checkout_book("To Kill a Mockingbird", "Anna Smith", "03-05-2023")
 checkout_book("Animal Farm", "Anna Smith", "03-03-2024")
+checkout_book("Animal Farm", "John Smith", "03-02-2024")
+checkout_book("Animal Farm", "Mark Allan", "03-03-2024")
 
 # Function to calculate the number of days
 def diff_dates(end_date, start_date):
@@ -60,7 +62,7 @@ def return_book(book_title, user_name, date):
         user_info[user_name]["borrowed_books"].remove(book_title)
         end_date = datetime.strptime(date, '%d-%m-%Y')
         if diff_dates(end_date, user_info[user_name]["checkout_date"][book_title]) > 7:
-            user_info[user_name]["fines"] += 10
+            user_info[user_name]["fines"] += 1
             print(f"Book '{book_title}' returned successfully but late, fine applied.")
         else: print(f"Book '{book_title}' returned successfully")
     else: print(f"Error: {user_name} has not borrowed {book_title}")
@@ -68,4 +70,16 @@ def return_book(book_title, user_name, date):
 
 return_book("To Kill a Mockingbird", "Anna Smith", "06-03-2024")
 return_book("Animal Farm", "Anna Smith", "03-03-2024")
+
+# Function to output the current books checkout for a user
+
+def user_current_info(user_name):
+    print(f'''
+          {user_name}'s library account
+          Checked out books : {user_info[user_name]["borrowed_books"]}
+          Fines : {user_info[user_name]["fines"]}
+          ''')
+
+user_current_info("Anna Smith")
+user_current_info("Mark Allan")
 
